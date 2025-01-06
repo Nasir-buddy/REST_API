@@ -27,8 +27,9 @@ export default class ProductController {
         res.status(201).send(createdRecord);
     }
 
-    rateProduct(req, res) {
-
+    rateProduct(userID, productID, rating) {
+        // 1. validate user and product
+        
     }
 
     getOneProduct(req, res) {

@@ -8,3 +8,7 @@ Products
     Add items to Cart.
     Get items of cart.
     Remove items from cart.
+
+User Controller 
+Signup - Email, Name, Passowrd, TypeOfUser(Customer, seller)
+Sigin - (Email, Password)

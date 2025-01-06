@@ -7,7 +7,7 @@ export default class UserModel {
         this.id = id;
     }
 
-    static SignUp(name, email, password, type){
+    static signUp(name, email, password, type){
         const newUser = new UserModel(name, email, password, type);
         newUser.id = users.length + 1;
         users.push(newUser);
@@ -16,7 +16,7 @@ export default class UserModel {
         return newUser;
     }
 
-    static SignIn(email, password){
+    static signIn(email, password){
         return users.find(user => user.email === email && user.password === password);
     }
 
@@ -25,7 +25,7 @@ export default class UserModel {
     }
 }
 
-var users = [{
+let users = [{
     id: 1,
     name: "Admin User",
     email: "admin@ecom.com",

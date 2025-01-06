@@ -28,6 +28,9 @@ export default class ProductModel {
     (!maxPrice || product.price <= maxPrice ) && 
     (!category || product.category == category))
   };
+  static rateProducts(userID, productID, rating){
+    
+  }
 }
 
 
