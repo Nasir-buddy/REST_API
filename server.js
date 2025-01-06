@@ -5,6 +5,7 @@ import UserRouter from './src/features/user/user.routes.js';
 import bodyParser from 'body-parser';
 import basicAuth from './src/middleware/basicAuth.middleware.js';
 import jwtAuth from './src/middleware/jwt.middleware.js';
+import cartRouter from './src/features/cart/cart.route.js';
 
 const port = 3000;
 const server = express();
@@ -13,7 +14,9 @@ const server = express();
 server.use(bodyParser.json());
 // for all request related to product redirect to product routes.
 
+
 server.use('/api/products', jwtAuth, ProductRouter);
+server.use('api/cartItems',jwtAuth, cartRouter);
 server.use('/api/users', UserRouter);
 
 server.get('/', (req, res)=>{
