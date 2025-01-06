@@ -32,4 +32,11 @@ let users = [{
     password: "admin",
     type: "seller"
     },
+    {
+        id: 2,
+        name: "Customer User",
+        email: "customer@ecom.com",
+        password: "customer",
+        type: "customer"
+        }
 ]
