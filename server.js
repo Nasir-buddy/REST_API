@@ -16,7 +16,7 @@ server.use(bodyParser.json());
 
 
 server.use('/api/products', jwtAuth, ProductRouter);
-server.use('api/cartItems',jwtAuth, cartRouter);
+server.use('/api/cartItems',jwtAuth, cartRouter);
 server.use('/api/users', UserRouter);
 
 server.get('/', (req, res)=>{
