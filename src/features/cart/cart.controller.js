@@ -14,7 +14,7 @@ export class cartController{
 
     delete(req, res){
         const useID = req.useID;
-        const cartItemID = req.paramd.id;
+        const cartItemID = req.params.id;
         const error = cartModel.delete(cartItemID, useID);
 
         if(error){
