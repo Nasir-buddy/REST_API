@@ -1,0 +1,8 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "5.0.1",
+        "description": "API for E-commerce application",
+        "title": "E-Commerce API"
+    }
+}
