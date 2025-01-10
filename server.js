@@ -12,6 +12,18 @@ import apiDocs from './swagger.json' assert {type: 'json'};
 const port = 3000;
 const server = express();
 
+// CORS policy header origin
+server.use((req, res, next)=>{
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+    res.header('Access-Control-Allow-Headers', '*');
+    res.header('Access-Control-Allow-Methods', '*');
+     
+    if(req.method == "OPTIONS"){
+        return res.sendStatus(200);
+    }
+    next();
+})
+
 // all json format data should be readable for browser
 server.use(bodyParser.json());
 // for all request related to product redirect to product routes.
