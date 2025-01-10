@@ -1,5 +1,7 @@
 import express from 'express'
 import swagger from 'swagger-ui-express';
+import cors from 'cors';
+
 import ProductRouter from './src/features/product/product.route.js';
 import UserRouter from './src/features/user/user.routes.js';
 
@@ -13,16 +15,22 @@ const port = 3000;
 const server = express();
 
 // CORS policy header origin
-server.use((req, res, next)=>{
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
-    res.header('Access-Control-Allow-Headers', '*');
-    res.header('Access-Control-Allow-Methods', '*');
+// server.use((req, res, next)=>{
+//     res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+//     res.header('Access-Control-Allow-Headers', '*');
+//     res.header('Access-Control-Allow-Methods', '*');
      
-    if(req.method == "OPTIONS"){
-        return res.sendStatus(200);
-    }
-    next();
-})
+//     if(req.method == "OPTIONS"){
+//         return res.sendStatus(200);
+//     }
+//     next();
+// })
+var corsOptions = {
+    origin: 'http://127.0.0.1:5500',
+    allowedHeaders: '*',
+
+}
+server.use(cors(corsOptions));
 
 // all json format data should be readable for browser
 server.use(bodyParser.json());
