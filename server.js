@@ -26,6 +26,12 @@ server.get('/', (req, res) => {
     res.send('welcome to e-comm app.');
 });
 
+// if none of these routes are matched. for handling 404 error
+server.use((req, res)=>{
+    res.status(404).send("API not found. Please check our documentation for more information at localhost:3000/api-docs");
+})
+
+
 server.listen(port, () => {
     console.log("server is running on port 3000");
 });
