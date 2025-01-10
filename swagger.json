@@ -4,5 +4,40 @@
         "version": "5.0.1",
         "description": "API for E-commerce application",
         "title": "E-Commerce API"
+    },
+    "host": "http://localhost:3000",
+    "paths": {
+        "/api/users/signin": {
+            "post": {
+                "summary": "Login",
+                "description": "User login to get token",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User Credentials",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "sttring"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description": "OK"
+                    }, 
+                    "400": {
+                        "description": "Invalid email or password."
+                    }
+                }
+            }
+        }
     }
 }
