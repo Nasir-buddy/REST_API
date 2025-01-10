@@ -23,7 +23,7 @@
                                     "type": "string"
                                 },
                                 "password": {
-                                    "type": "sttring"
+                                    "type": "string"
                                 }
                             }
                         }
