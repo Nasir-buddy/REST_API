@@ -43,7 +43,7 @@ export default class ProductModel {
     // validate for product 
     const product = products.find((p) => p.id == productID);
     if (!product) {
-      return "Product not found";
+      throw new Error('Product not found.');
     }
     // check if there are any rating and if not then add ratings array;
     if (!product.ratings) {

@@ -38,7 +38,7 @@ export default class ProductController {
         try {
             ProductModel.rateProducts(userID, productID, rating);
         } catch (error) {
-            return res.status(400).send(error);
+            return res.status(400).send(error.message);
         }
 
         return res.status(200).send('Rating has been added.')
