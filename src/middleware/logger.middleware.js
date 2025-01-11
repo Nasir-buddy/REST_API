@@ -15,7 +15,7 @@ const logger = winston.createLogger({
     format: winston.format.json(),
     defaultMeta: { service: 'request-logging' },
     transports: [
-        new winston.transport.File({ filename: 'logs.txt' })
+        new winston.transports.File({ filename: 'logs.txt' })
     ]
 });
 
