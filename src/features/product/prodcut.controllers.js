@@ -27,18 +27,19 @@ export default class ProductController {
         res.status(201).send(createdRecord);
     }
 
-    rateProduct(req, res) {
+    rateProduct(req, res, next) {
         // 1. validate user and product
         console.log(req.query);
 
         const userID = req.query.userID;
         const productID = req.query.productID;
-        const rating = req.query.rating;
+        const rating = req.querys.rating;
 
         try {
             ProductModel.rateProducts(userID, productID, rating);
         } catch (error) {
-            return res.status(400).send(error.message);
+            console.log("passing eror to middleware");
+            next(error)
         }
 
         return res.status(200).send('Rating has been added.')

@@ -1,5 +1,6 @@
 import { PassThrough } from "stream";
 import UserModel from "../user/user.model.js";
+import { ApplicationError } from "../../error-handler/ApplicationError.js";
 
 export default class ProductModel {
 
@@ -37,13 +38,13 @@ export default class ProductModel {
     //1 validate user and produt.
     const user = UserModel.getAllUser().find((u) => u.id == userID);
     if (!user) {
-      throw new Error("user not found");
+      throw new ApplicationError("user not found", 404);
     }
 
     // validate for product 
     const product = products.find((p) => p.id == productID);
     if (!product) {
-      throw new Error('Product not found.');
+      throw new ApplicationError('Product not found.', 400);
     }
     // check if there are any rating and if not then add ratings array;
     if (!product.ratings) {
