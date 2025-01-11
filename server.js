@@ -10,6 +10,7 @@ import basicAuth from './src/middleware/basicAuth.middleware.js';
 import jwtAuth from './src/middleware/jwt.middleware.js';
 import cartRouter from './src/features/cart/cart.route.js';
 import apiDocs from './swagger.json' assert {type: 'json'};
+import loggerMiddleware from './src/middleware/logger.middleware.js';
 
 const port = 3000;
 const server = express();
@@ -38,8 +39,9 @@ server.use(bodyParser.json());
 
 server.use('/api-docs', swagger.serve, swagger.setup(apiDocs));
 
+server.use(loggerMiddleware)
 server.use('/api/products', jwtAuth, ProductRouter);
-server.use('/api/cartItems', jwtAuth, cartRouter);
+server.use('/api/cartItems',loggerMiddleware, jwtAuth, cartRouter);
 server.use('/api/users', UserRouter);
 
 server.get('/', (req, res) => {
