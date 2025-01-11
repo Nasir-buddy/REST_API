@@ -1,3 +1,4 @@
+import { PassThrough } from "stream";
 import UserModel from "../user/user.model.js";
 
 export default class ProductModel {
@@ -36,7 +37,7 @@ export default class ProductModel {
     //1 validate user and produt.
     const user = UserModel.getAllUser().find((u) => u.id == userID);
     if (!user) {
-      return "user not found";
+      throw new Error("user not found");
     }
 
     // validate for product 
@@ -51,7 +52,7 @@ export default class ProductModel {
     } else {
       // check if user rating is aleady available.
       const existingRating = product.ratings.findIndex((r) => r.userID == userID);
-      if(existingRating >= 0){
+      if (existingRating >= 0) {
         product.ratings[existingRating] = {
           userID: userID,
           rating: rating,
