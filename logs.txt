@@ -22,3 +22,8 @@
 {"level":"info","message":"/api/products/rate?userID=2&productID=1&rating=4 - {}","service":"request-logging"}
 {"level":"info","message":"/api/products/rate?userID=2&productID=1&rating=4 - {}","service":"request-logging"}
 {"level":"info","message":"/api/products/rate?userID=2&productID=1&rating=4 - {}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Seller User\",\"email\":\"customer@ecom.com\",\"password\":\"customer\",\"type\":\"seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Seller User\",\"email\":\"customer@ecom.com\",\"password\":\"customer\",\"type\":\"seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Seller User\",\"email\":\"customer@ecom.com\",\"password\":\"customer\",\"type\":\"seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Seller User\",\"email\":\"customer@ecom.com\",\"password\":\"customer\",\"type\":\"seller\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Seller User\",\"email\":\"customer@ecom.com\",\"password\":\"customer\",\"type\":\"seller2\"}","service":"request-logging"}

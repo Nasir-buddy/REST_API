@@ -1,10 +1,15 @@
 import jwt from "jsonwebtoken";
 import UserModel from "./user.model.js";
 export default class UserController {
-    signUp(req, res) {
-        const { name, email, password, type } = req.body;
-        const user = UserModel.signUp(name, email, password, type);
-        res.status(201).send(user)
+    async signUp(req, res) {
+        try {
+            const { name, email, password, type } = req.body;
+            const user = await UserModel.signUp(name, email, password, type);
+            res.status(201).send(user);
+
+        } catch (error) {
+            console.log(error, "error in signup route while signing up.");
+        }
     }
 
     signIn(req, res) {
