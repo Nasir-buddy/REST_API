@@ -12,6 +12,7 @@ import cartRouter from './src/features/cart/cart.route.js';
 import apiDocs from './swagger.json' assert {type: 'json'};
 import loggerMiddleware from './src/middleware/logger.middleware.js';
 import { ApplicationError } from './src/error-handler/ApplicationError.js';
+import { connectMDB } from './src/database/db.js';
 
 const port = 3000;
 const server = express();
@@ -54,8 +55,8 @@ server.get('/', (req, res) => {
 server.use((err, req, res, next) => {
     console.log(err);
     console.log("running error app");
-    
-    if(error instanceof ApplicationError){
+
+    if (error instanceof ApplicationError) {
         res.status(err.code).send(err.message);
     }
     // server error
@@ -69,4 +70,5 @@ server.use((req, res) => {
 
 server.listen(port, () => {
     console.log("server is running on port 3000");
+    connectMDB();
 });

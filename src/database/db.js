@@ -1,16 +1,20 @@
-const mongoose = require('mongoose');
+import { MongoClient } from 'mongodb';
 
-const connectDB = async () => {
-    try {
-        await mongoose.connect('your_mongodb_connection_string', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        console.log('MongoDB connected successfully');
-    } catch (error) {
-        console.error('Error connecting to MongoDB:', error.message);
-        process.exit(1);
-    }
-};
+let client;
+const url = 'mongodb://localhost:27017/ecomdb';
 
-module.exports = connectDB;
+export const connectMDB = () => {
+    MongoClient.connect(url)
+        .then(clientInstance => {
+            client = clientInstance;
+            console.log("mongodb is connected");
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
+
+export const getDB = ()=>{
+    return client.db();
+}
